@@ -3,7 +3,6 @@ control "audit-1-5-1" do
   title "audit"
   desc "audit"
   describe file('/etc/init/serial.conf') do
-    its('content') { should_not match 'pre-start' }
-    its('group') { should eq 'kwood' }
+    its('content') { should_not match /pre-start\s.*/ }
   end
 end
